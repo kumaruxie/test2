@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MscndConnect - Connect & Post</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+     <script src="ex.js" type="module"></script>
+     <link rel="stylesheet" href="ex.css">
+</head>
+<body class="min-h-screen">
+
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">MscndConnect</a>
+            
+            <!-- Auth Status & Action -->
+            <div id="auth-controls" class="flex items-center space-x-4">
+                <span id="user-display" class="hidden text-sm font-medium text-gray-700"></span>
+                <button id="login-logout-btn" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150 ease-in-out shadow-lg">
+                    Loading...
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <!-- Post Creation Section -->
+        <section id="create-post-section" class="mb-8 hidden">
+            <div class="bg-white p-6 rounded-xl shadow-xl border border-indigo-100">
+                <button id="new-post-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition duration-150 ease-in-out text-lg">
+                    + Create New Post
+                </button>
+                <p id="post-error" class="text-red-500 mt-2 text-center hidden"></p>
+            </div>
+        </section>
+
+        <!-- Posts Feed -->
+        <section id="posts" class="pt-4">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-6 border-b pb-2">Community Feed</h2>
+            <div id="posts-container" class="space-y-6">
+                <!-- Posts will be dynamically inserted here -->
+            </div>
+            <p id="loading-message" class="text-center text-gray-500 mt-8">Loading posts...</p>
+        </section>
+
+        <!-- Placeholder for other original sections (kept minimal for focus on functionality) -->
+        <section id="about-us" class="mt-12 p-8 bg-white rounded-xl shadow-xl">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">About Mscnd Connect</h2>
+            <p class="text-gray-600">MscndConnect is a platform designed to help aspiring entrepreneurs turn their ideas into successful startups by connecting them with like-minded individuals and resources. Join us today and take the first step towards bringing your vision to life!</p>
+        </section>
+    </main>
+
+    <!-- Post Creation Modal -->
+    <div id="post-modal" class="modal fixed inset-0 flex items-center justify-center p-4 hidden">
+        <div class="bg-white w-full max-w-lg p-6 rounded-xl shadow-2xl transform scale-100 transition-transform duration-300">
+            <h3 class="text-xl font-bold mb-4 text-gray-800">Share Your Idea</h3>
+            <form id="post-form">
+                <div class="mb-4">
+                    <label for="post-title" class="block text-sm font-medium text-gray-700">Post Title (Max 60 chars)</label>
+                    <input type="text" id="post-title" maxlength="60" required class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+                <div class="mb-6">
+                    <label for="post-content" class="block text-sm font-medium text-gray-700">What's your big idea?</label>
+                    <textarea id="post-content" rows="4" required class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+                <div class="flex justify-end space-x-3">
+                    <button type="button" id="close-post-modal" class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition duration-150">Cancel</button>
+                    <button type="submit" id="submit-post-btn" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-150 shadow-md">Post Idea</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Message/Auth Modal (Used for initial username input or error messages) -->
+    <div id="message-modal" class="modal fixed inset-0 flex items-center justify-center p-4 hidden">
+        <div class="bg-white w-full max-w-sm p-6 rounded-xl shadow-2xl transform scale-100 transition-transform duration-300">
+            <h3 id="message-title" class="text-lg font-bold mb-3 text-gray-800">Welcome!</h3>
+            <p id="message-content" class="text-gray-600 mb-4">Please enter a unique username.</p>
+            <input type="text" id="username-input" placeholder="Your Username" class="mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500 mb-4" />
+            <div class="flex justify-end">
+                <button type="button" id="close-message-modal" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-150 shadow-md">Save</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

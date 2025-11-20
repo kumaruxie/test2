@@ -1,0 +1,14 @@
+ body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .post-card {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+        .post-card:hover {
+            transform: translateY(-2px);
+        }
+        .modal {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
